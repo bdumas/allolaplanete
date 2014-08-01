@@ -1,0 +1,25 @@
+{
+	"name": "Allô la Planète",
+	"description": "Ecoutez \"Allô la Planète\" 24 heures sur 24 !",
+	"version": "0.1",
+	"launch_path": "/index.html",
+	"icons": {
+	    "16": "/img/icons/allolaplanete16.png",
+        "32": "/img/icons/allolaplanete32.png",
+        "48": "/img/icons/allolaplanete48.png",
+        "60": "/img/icons/allolaplanete60.png",
+        "64": "/img/icons/allolaplanete64.png",
+        "90": "/img/icons/allolaplanete90.png",
+        "120": "/img/icons/allolaplanete120.png",
+        "128": "/img/icons/allolaplanete128.png"
+	},
+	"developer": {
+		"name": "Benjamin Dumas",
+		"url": "https://github.com/bdumas"
+	},
+	"installs_allowed_from": ["*"],
+	"default_locale": "fr",
+	"permissions": {
+        "audio-channel-content":{"description":  "Utilise le canal audio pour diffuser la web radio."}
+    }
+}
