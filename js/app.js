@@ -3,6 +3,7 @@
     
     window.onload = function () {
         console.log("go");
+        installModule.setUpInstallButton();
         
         var audio;
         var btnPlay = document.getElementById('btn-play');
@@ -22,13 +23,13 @@
             varAudio.mozAudioChannelType = 'content';
             
             varAudio.addEventListener('canplay', playing);
-            //varAudio.addEventListener('play', playing);
+            varAudio.addEventListener('play', log);
             varAudio.addEventListener('playing', playing);
             
             varAudio.addEventListener('abort', notPlaying);
             varAudio.addEventListener('emptied', notPlaying);
             varAudio.addEventListener('ended', notPlaying);
-            //varAudio.addEventListener('stalled', notPlaying);
+            varAudio.addEventListener('stalled', notPlaying);
             varAudio.addEventListener('waiting', notPlaying);
             
             varAudio.addEventListener('error', error);
@@ -96,6 +97,10 @@
         function playing(event) {
             console.log(event);
             displayBtnPause();
+        }
+        
+        function log(event) {
+            console.log(event);
         }
     };
 

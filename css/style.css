@@ -8,13 +8,18 @@ body {
 	text-align: center;
 	overflow: auto;
 }
+#btn-add {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 h1 {
 	font-weight: 800;
 	font-size: 1.85em;
 }
 #loading {
 	background: url(../img/bg-stop.png),
-                url(../img/loading.gif);
+                url(../img/loading2.gif);
     background-repeat: no-repeat, no-repeat;
     background-position: top left, 43px -23px;
 }
