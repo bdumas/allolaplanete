@@ -7,10 +7,10 @@ var installModule = (function () {
             checkIfInstalled.onsuccess = function () {
                 if (!checkIfInstalled.result) {
                     var install = document.querySelector("#btn-add"),
-                        packageURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/allolaplanete.zip";
+                        manifestUrl = location.href.substring(0, location.href.lastIndexOf("/")) + "/package/manifest.webapp";
                     install.style.display = "block";
                     install.onclick = function () {
-                        var installApp = navigator.mozApps.installPackage(packageURL);
+                        var installApp = navigator.mozApps.installPackage(manifestUrl);
                         installApp.onsuccess = function() {
                             install.style.display = "none";
                         };
