@@ -10,10 +10,10 @@ body {
 }
 #btn-add {
 	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 2em;
-	padding: 15px;
+    top: 5px;
+    right: 15px;
+    font-size: 2em;
+    cursor: pointer;
 }
 h1 {
 	font-weight: 800;
