@@ -1,9 +1,19 @@
 {
     "name": "Allô la Planète",
-    "package_path" : "http://bdumas.github.io/allolaplanete/package/allolaplanete.zip",
+    "package_path" : "http://bdumas.github.io/allolaplanete/package/package.zip",
     "version": "0.1",
     "developer": {
         "name": "Benjamin Dumas",
         "url": "https://github.com/bdumas"
+    },
+    "icons": {
+        "16": "/img/icons/allolaplanete16.png",
+        "32": "/img/icons/allolaplanete32.png",
+        "48": "/img/icons/allolaplanete48.png",
+        "60": "/img/icons/allolaplanete60.png",
+        "64": "/img/icons/allolaplanete64.png",
+        "90": "/img/icons/allolaplanete90.png",
+        "120": "/img/icons/allolaplanete120.png",
+        "128": "/img/icons/allolaplanete128.png"
     }
 }
