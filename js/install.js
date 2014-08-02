@@ -13,7 +13,6 @@ var installModule = (function () {
                         var installApp = navigator.mozApps.installPackage(manifestUrl);
                         installApp.onsuccess = function() {
                             install.style.display = "none";
-                            alert(this.result.origin);
                         };
                         installApp.onerror = function() {
                             alert("Install failed\n\n:" + installApp.error.name);
