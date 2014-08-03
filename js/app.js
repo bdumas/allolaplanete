@@ -2,7 +2,6 @@
     "use strict";
     
     window.onload = function () {
-        console.log("go");
         installModule.setUpInstallButton();
         
         var audio;
@@ -28,7 +27,6 @@
             varAudio.mozAudioChannelType = 'content';
             
             varAudio.addEventListener('canplay', playing);
-            varAudio.addEventListener('play', log);
             varAudio.addEventListener('playing', playing);
             
             varAudio.addEventListener('abort', notPlaying);
@@ -42,7 +40,6 @@
             
             audioState = "play";
             varAudio.play();
-            console.log("play (init)");
             audio = varAudio;
         }
         
@@ -51,7 +48,6 @@
                 btnPause.classList.add('hidden');
                 loading.classList.add('hidden');
                 btnPlay.classList.remove('hidden');
-                console.log("displayBtnPlay");
             }
         }
         
@@ -60,7 +56,6 @@
                 btnPause.classList.remove('hidden');
                 loading.classList.add('hidden');
                 btnPlay.classList.add('hidden');
-                console.log("displayBtnPause");
             }
         }
         
@@ -69,7 +64,6 @@
                 loading.classList.remove('hidden');
                 btnPause.classList.add('hidden');
                 btnPlay.classList.add('hidden');
-                console.log("displayLoading");
             }
         }
         
@@ -77,30 +71,24 @@
             try {
                 audioState = "play";
                 audio.play();
-                console.log("play (reprise)");
             } catch (error) {
-                console.log(error);
                 audioState = "play";
                 audio.load();
-                console.log("load");
             }
         }
        
         function pause() {
             audioState = "pause";
             audio.pause();
-            console.log("pause");
             displayBtnPlay();
         }
         
         function load() {
             audioState = "play";
             audio.load();
-            console.log("load");
         }
         
         function error(error) {
-            console.log(error);
             if (audioState == "play") {
                 displayLoading();
                 setTimeout(initAudio, 1000);
@@ -109,20 +97,14 @@
         
         function notPlaying(event) {
             if (audioState == "play") {
-                console.log(event);
                 displayLoading();
             }
         }
         
         function playing(event) {
             if (audioState == "play") {
-                console.log(event);
                 displayBtnPause();
             }
-        }
-        
-        function log(event) {
-            console.log(event);
         }
     };
 
