@@ -21,7 +21,7 @@ h1 {
 }
 #loading {
 	background: url(../img/bg-stop.png),
-                url(../img/loading2.gif);
+                url(../img/loading.gif);
     background-repeat: no-repeat, no-repeat;
     background-position: top left, 43px -23px;
 }

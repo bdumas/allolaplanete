@@ -6,6 +6,7 @@
         installModule.setUpInstallButton();
         
         var audio;
+        var audioState = "pause";
         var btnPlay = document.getElementById('btn-play');
         var btnPause = document.getElementById('btn-pause');
         var loading = document.getElementById('loading');
@@ -35,50 +36,61 @@
             varAudio.addEventListener('error', error);
             varAudio.addEventListener('suspend', error);
             
+            audioState = "play";
             varAudio.play();
             console.log("play (init)");
             audio = varAudio;
         }
         
         function displayBtnPlay() {
-            btnPause.classList.add('hidden');
-            loading.classList.add('hidden');
-            btnPlay.classList.remove('hidden');
-            console.log("displayBtnPlay");
+            if (audioState == "pause") {
+                btnPause.classList.add('hidden');
+                loading.classList.add('hidden');
+                btnPlay.classList.remove('hidden');
+                console.log("displayBtnPlay");
+            }
         }
         
         function displayBtnPause() {
-            btnPause.classList.remove('hidden');
-            loading.classList.add('hidden');
-            btnPlay.classList.add('hidden');
-            console.log("displayBtnPause");
+            if (audioState == "play") {
+                btnPause.classList.remove('hidden');
+                loading.classList.add('hidden');
+                btnPlay.classList.add('hidden');
+                console.log("displayBtnPause");
+            }
         }
         
         function displayLoading() {
-            loading.classList.remove('hidden');
-            btnPause.classList.add('hidden');
-            btnPlay.classList.add('hidden');
-            console.log("displayLoading");
+            if (audioState == "play") {
+                loading.classList.remove('hidden');
+                btnPause.classList.add('hidden');
+                btnPlay.classList.add('hidden');
+                console.log("displayLoading");
+            }
         }
         
         function rePlay() {
             try {
+                audioState = "play";
                 audio.play();
                 console.log("play (reprise)");
             } catch (error) {
                 console.log(error);
+                audioState = "play";
                 audio.load();
                 console.log("load");
             }
         }
        
         function pause() {
+            audioState = "pause";
             audio.pause();
             console.log("pause");
             displayBtnPlay();
         }
         
         function load() {
+            audioState = "play";
             audio.load();
             console.log("load");
         }
@@ -90,13 +102,17 @@
         }
         
         function notPlaying(event) {
-            console.log(event);
-            displayLoading();
+            if (audioState == "play") {
+                console.log(event);
+                displayLoading();
+            }
         }
         
         function playing(event) {
-            console.log(event);
-            displayBtnPause();
+            if (audioState == "play") {
+                console.log(event);
+                displayBtnPause();
+            }
         }
         
         function log(event) {
