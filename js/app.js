@@ -18,6 +18,10 @@
         initAudio();
         
         function initAudio() {
+            if (audio != null) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
             var varAudio = new Audio();
             varAudio.src = 'http://mp3lg4.tdf-cdn.com/8419/rad_190908.mp3';
             varAudio.preload = 'auto';
@@ -96,9 +100,11 @@
         }
         
         function error(error) {
-            console.log(error)
-            displayLoading();
-            setTimeout(initAudio, 1000);
+            console.log(error);
+            if (audioState == "play") {
+                displayLoading();
+                setTimeout(initAudio, 1000);
+            }
         }
         
         function notPlaying(event) {
